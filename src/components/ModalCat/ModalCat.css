@@ -2,7 +2,7 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: black;
-	opacity: 0.9;
+	opacity: 0.98;
 	position: fixed;
 	display: flex;
 	justify-content: center;
@@ -35,10 +35,13 @@
 }
 
 .titleCloseBtn button {
-	background-color: transparent;
+	background-color: black;
 	border: none;
 	font-size: 25px;
 	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
 }
 
 .modalContainer .body {
@@ -49,7 +52,11 @@
 	font-size: 1.7rem;
 	text-align: center;
 }
-
+.modal__skeleton {
+	background-color: #eee;
+	height: 100%;
+	width: 100%;
+}
 .modalContainer .footer {
 	flex: 20%;
 	display: flex;

@@ -9,17 +9,16 @@ const Search = ({
 	validTags,
 }) => {
 	const [term, setTerm] = useState("");
-	//const comment="@"
 
 	const handleInputChange = (e) => {
 		setTerm(e.target.value);
 	};
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
-		console.log(term);
 		const index = validTags.indexOf(term);
 		if (index === -1) {
 			setTerm("");
+			setCatImgUrl(false);
 			return;
 		}
 		const searchTerm = term;
@@ -27,19 +26,18 @@ const Search = ({
 		setCatImgUrl(`https://cataas.com/cat/${term}`);
 		setCatTags([...[], searchTerm]);
 		setCatImgDescription(descriptionResponse.data.fact);
+		setTerm("");
 	};
 	return (
-		<div className="search_container">
-			<form onSubmit={handleFormSubmit}>
-				<input
-					type="text"
-					value={term}
-					placeholder="Enter the search tag"
-					onChange={(e) => handleInputChange(e)}
-				/>
-				<button type="submit">Search Text</button>
-			</form>
-		</div>
+		<form onSubmit={handleFormSubmit} className="search__form">
+			<input
+				type="text"
+				value={term}
+				placeholder="Enter the search tag"
+				onChange={(e) => handleInputChange(e)}
+			/>
+			<button type="submit">Search Tag</button>
+		</form>
 	);
 };
 

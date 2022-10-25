@@ -6,11 +6,13 @@ const ModalCat = ({ setOpenModal, catImgDescription }) => {
 	const [catGif, setCatGif] = useState(null);
 	useEffect(() => {
 		const getCatGif = () => {
-			const response = axios
+			axios
 				.get(`https://cataas.com/cat/gif/says/${catImgDescription}?json=true`)
 				.then((response) => {
 					console.log(response.data);
-					setCatGif(`https://cataas.com${response.data.url}`);
+					setTimeout(() => {
+						setCatGif(`https://cataas.com${response.data.url}`);
+					}, 2000);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -19,6 +21,18 @@ const ModalCat = ({ setOpenModal, catImgDescription }) => {
 		getCatGif();
 	}, []);
 
+	let catGifTag;
+	if (catGif === null) {
+		catGifTag = <div className="modal__skeleton">Loading...</div>;
+	} else if (catGif === false) {
+		catGifTag = (
+			<div className="modal__skeleton">
+				Error loading the GIF, please close the modal and refresh the page.
+			</div>
+		);
+	} else {
+		catGifTag = <img src={catGif} alt="Cat Gif" />;
+	}
 	return (
 		<div className="modalBackground">
 			<div className="modalContainer">
@@ -28,9 +42,7 @@ const ModalCat = ({ setOpenModal, catImgDescription }) => {
 				<div className="title">
 					<h1>Cat Gif</h1>
 				</div>
-				<div className="body">
-					{catGif === null ? <p>No Gif</p> : <img src={catGif} />}
-				</div>
+				<div className="body">{catGifTag}</div>
 				<div className="footer"></div>
 			</div>
 		</div>

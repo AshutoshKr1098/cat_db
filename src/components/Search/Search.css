@@ -4,25 +4,30 @@
 	display: flex;
 	align-items: flex-center;
 }
-
-.search_container input {
+.search__form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+input {
 	display: inline-block;
-	padding: 10px;
+	padding: 20px;
 	width: 100%;
 	margin: px auto;
-	font-size: 14px;
+	font-size: 20px;
 	color: gray;
-	border: 3px solid gray;
+	border: 3px solid rgb(185, 149, 149);
 	border-radius: 20px;
 	justify-content: center;
 	text-align: center;
 	outline: none;
 }
 
-.search_container button {
+button {
 	width: 250px;
 	height: 45px;
-	margin: 10px 20px;
+	margin-top: 30px;
+	margin-left: 120px;
 	border: none;
 	background-color: cornflowerblue;
 	color: white;

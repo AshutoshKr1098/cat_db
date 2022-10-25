@@ -9,6 +9,7 @@
 	border-radius: 10px;
 	padding: 10px 1px;
 	overflow: hidden;
+	cursor: pointer;
 }
 .cat_card_image {
 	width: 90%;
@@ -53,7 +54,8 @@
 	margin: 10px 1%;
 	justify-content: space-between;
 }
-.cat__invalid__tag {
+.cat__invalid__tag,
+.cat__reset__button {
 	width: 80%;
 	margin: 0px auto;
 	background-color: red;
@@ -61,4 +63,8 @@
 	text-align: center;
 	border-radius: 5px;
 	padding: 10px;
+}
+.cat__reset__button:hover {
+	background-color: yellow;
+	color: red;
 }
