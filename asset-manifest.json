@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cat_db/static/css/main.fbdd418c.css",
+    "main.js": "/cat_db/static/js/main.30388dc6.js",
+    "index.html": "/cat_db/index.html",
+    "main.fbdd418c.css.map": "/cat_db/static/css/main.fbdd418c.css.map",
+    "main.30388dc6.js.map": "/cat_db/static/js/main.30388dc6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fbdd418c.css",
+    "static/js/main.30388dc6.js"
+  ]
+}
