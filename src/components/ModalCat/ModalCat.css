@@ -1,11 +1,15 @@
 .modalBackground {
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(200, 200, 200);
+	background-color: black;
+	opacity: 0.9;
 	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 .modalContainer {

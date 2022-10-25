@@ -1,18 +1,22 @@
 .cat_card_wrapper {
-	height: 400px;
-	width: 600px;
-	margin: 20px auto;
-	border: 2px solid gray;
+	height: 500px;
+	width: 400px;
+	margin-top: 40px;
+	margin-bottom: 0px;
+	/* margin-left: 50%; */
+	margin-right: 50%;
+	border: 3px solid #ddd;
 	border-radius: 10px;
-	padding: 10px;
+	padding: 10px 1px;
 	overflow: hidden;
 }
-
 .cat_card_image {
+	width: 90%;
+	height: 90%;
+	margin: 10px auto;
+	background-color: #ddd;
 	height: 60%;
-	width: 80%;
-	margin: 0 auto;
-	overflow: hidden;
+	object-fit: fill;
 }
 
 .cat_card_image img {
@@ -21,8 +25,40 @@
 }
 
 .cat_card_description {
-	margin-top: 10px;
+	width: 90%;
+	/* height: 20%; */
+	margin: 10px auto;
+	padding: 10px 10px;
+	text-align: center;
+	border-radius: 20px;
+	background-color: rgb(245, 216, 221);
+}
 
-	height: 10%;
+.cat__tags {
 	width: 100%;
+	margin: 10px;
+	margin-left: 20px;
+	/* display: flex; */
+	/* background-color: #ddd; */
+}
+.cat__tag {
+	/* height: 23px; */
+	border-radius: 5px;
+	padding: 10px 10px;
+	text-align: center;
+	background-color: rgb(161, 65, 54);
+	color: white;
+	/* width: 30%; */
+	display: inline-block;
+	margin: 10px 1%;
+	justify-content: space-between;
+}
+.cat__invalid__tag {
+	width: 80%;
+	margin: 0px auto;
+	background-color: red;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	padding: 10px;
 }

@@ -1,0 +1,24 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.container {
+	width: 80%;
+	margin: 50px auto 0px auto;
+	padding: 20px;
+	display: flex;
+	box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
+	-webkit-box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
+	-moz-box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
+}
+.search__container {
+	height: 300px;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.card__container {
+	margin-left: 15%;
+}

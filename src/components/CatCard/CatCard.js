@@ -3,7 +3,11 @@ import "./CatCard.css";
 const CatCard = ({ catImgUrl, catImgDescription, catTags, setOpenModal }) => {
 	const displayCatTags = () => {
 		const catTagList = catTags.map((tag, index) => {
-			return <li key={index}>{tag}</li>;
+			return (
+				<li key={index} className="cat__tag">
+					{tag}
+				</li>
+			);
 		});
 
 		return catTagList;
@@ -13,15 +17,15 @@ const CatCard = ({ catImgUrl, catImgDescription, catTags, setOpenModal }) => {
 			<div className="cat_card_image">
 				<img src={catImgUrl} />
 			</div>
-			<div className="cat_card_description">
-				<p>{catImgDescription}</p>
-			</div>
 			<div className="cat_card_tags">
 				{catTags.length > 0 ? (
-					<ul>{displayCatTags()}</ul>
+					<ul className="cat__tags">{displayCatTags()}</ul>
 				) : (
-					<p>No Tags for this cat ;(</p>
+					<p className="cat__invalid__tag">No Tags for this cat ;(</p>
 				)}
+			</div>
+			<div className="cat_card_description">
+				<p>{catImgDescription}</p>
 			</div>
 		</div>
 	);

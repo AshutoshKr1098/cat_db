@@ -4,7 +4,7 @@ import Search from "./components/Search/Search";
 import CatCard from "./components/CatCard/CatCard";
 import ModalCat from "./components/ModalCat/ModalCat";
 import SkeletonFull from "./components/Skeletons/SkeletonFull";
-
+import "./App.css";
 const App = () => {
 	const [validTags, setValidTags] = useState([]);
 	const [catImgUrl, setCatImgUrl] = useState(null);
@@ -37,31 +37,34 @@ const App = () => {
 		fetchCatData();
 	}, []);
 	return (
-		<>
-			<Search
-				setCatImgUrl={setCatImgUrl}
-				setCatTags={setCatTags}
-				setCatImgDescription={setCatImgDescription}
-				validTags={validTags}
-			/>
-			{openModal && (
-				<ModalCat
-					setOpenModal={setOpenModal}
-					catImgDescription={catImgDescription}
+		<div className="container">
+			<div className="search__container">
+				<Search
+					setCatImgUrl={setCatImgUrl}
+					setCatTags={setCatTags}
+					setCatImgDescription={setCatImgDescription}
+					validTags={validTags}
 				/>
-			)}
-			<br></br>
-			{catImgUrl !== null ? (
-				<CatCard
-					catImgUrl={catImgUrl}
-					catImgDescription={catImgDescription}
-					catTags={catTags}
-					setOpenModal={setOpenModal}
-				/>
-			) : (
-				<SkeletonFull />
-			)}
-		</>
+			</div>
+			<div className="card__container">
+				{openModal && (
+					<ModalCat
+						setOpenModal={setOpenModal}
+						catImgDescription={catImgDescription}
+					/>
+				)}
+				{catImgUrl && catImgDescription && catTags ? (
+					<CatCard
+						catImgUrl={catImgUrl}
+						catImgDescription={catImgDescription}
+						catTags={catTags}
+						setOpenModal={setOpenModal}
+					/>
+				) : (
+					<SkeletonFull />
+				)}
+			</div>
+		</div>
 	);
 };
 
