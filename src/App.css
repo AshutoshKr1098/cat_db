@@ -2,16 +2,50 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+	font-family: "Noto Sans", sans-serif;
 }
 .container {
 	width: 80%;
 	margin: 50px auto 0px auto;
 	padding: 20px;
 	display: flex;
+	background: rgb(148, 21, 223);
+	border-radius: 20px;
+	background: linear-gradient(
+		94deg,
+		rgba(148, 21, 223, 1) 0%,
+		rgba(130, 74, 210, 1) 28%,
+		rgba(144, 55, 198, 1) 55%,
+		rgba(160, 39, 218, 1) 100%
+	);
 	box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
 	-webkit-box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
 	-moz-box-shadow: 37px 35px 146px 39px rgba(52, 240, 207, 0.53);
 }
+.app__loading__container {
+	background: rgb(223, 21, 21);
+	background: linear-gradient(
+		94deg,
+		rgba(223, 21, 21, 1) 0%,
+		rgba(240, 63, 49, 1) 28%,
+		rgba(187, 19, 41, 1) 55%,
+		rgba(218, 39, 53, 1) 100%
+	);
+	margin: 0px;
+	padding: 0px;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+}
+.spinny {
+	position: fixed;
+	left: 49%;
+	top: 40%;
+	z-index: 1000;
+	height: 31px;
+	width: 31px;
+}
+
 .search__container {
 	height: 300px;
 	width: 90%;

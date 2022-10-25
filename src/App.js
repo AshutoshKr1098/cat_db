@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+import { RotatingTriangles } from "react-loader-spinner";
+
 import Search from "./components/Search/Search";
 import CatCard from "./components/CatCard/CatCard";
 import InvalidCatCard from "./components/CatCard/InvalidCatCard";
@@ -14,6 +17,7 @@ const App = () => {
 	const [catTags, setCatTags] = useState([]);
 	const [catImgDescription, setCatImgDescription] = useState("");
 	const [openModal, setOpenModal] = useState(false);
+	const [loader, setLoader] = useState(true);
 
 	// Function to collect list of supported tags by the exposed API. This will be used, in case user inputs an invalid tag, then we will validate it using the list of supported tags we collected here.
 	const fetchCatTags = async () => {
@@ -28,19 +32,33 @@ const App = () => {
 		setValidTags(tagList);
 	};
 
+	// Function to collect cat's data by hitting the endpoint
+
 	const fetchCatData = async () => {
 		const response = await axios.get("https://cataas.com/cat?json=true");
 		const descriptionResponse = await axios.get("https://catfact.ninja/fact");
+		let descriptionData = descriptionResponse.data.fact;
+
+		// Lower the description length to keep description size intact
+		descriptionData =
+			descriptionData.length > 120
+				? descriptionData.substring(0, 120 - 3) + "..."
+				: descriptionData;
 
 		setCatImgUrl(`https://cataas.com${response.data.url}`);
 		setCatTags(response.data.tags);
-		setCatImgDescription(descriptionResponse.data.fact);
+		setCatImgDescription(descriptionData);
 	};
 
+	// When component loads for the first tine, we need to collect all the relevant tags and also the first time cat's detail to show in card.
 	useEffect(() => {
-		fetchCatTags();
-		fetchCatData();
+		setTimeout(() => {
+			setLoader(false);
+			fetchCatTags();
+			fetchCatData();
+		}, 2000); // just to bring a nice loading spinny.
 	}, []);
+
 	let cardComponent;
 	if (catImgUrl === false) {
 		cardComponent = <InvalidCatCard />;
@@ -56,27 +74,43 @@ const App = () => {
 	} else if (catImgUrl === null) {
 		cardComponent = <SkeletonFull />;
 	}
-	return (
-		<div className="container">
-			<div className="search__container">
-				<Search
-					setCatImgUrl={setCatImgUrl}
-					setCatTags={setCatTags}
-					setCatImgDescription={setCatImgDescription}
-					validTags={validTags}
-				/>
-			</div>
-			<div className="card__container">
-				{openModal && (
-					<ModalCat
-						setOpenModal={setOpenModal}
-						catImgDescription={catImgDescription}
+
+	let renderedAppComponent =
+		loader === true ? (
+			<div className="app__loading__container">
+				<div className="spinny">
+					<RotatingTriangles
+						visible={true}
+						height="80"
+						width="80"
+						ariaLabel="rotating-triangels-loading"
+						wrapperStyle={{}}
+						wrapperClass="rotating-triangels-wrapper"
 					/>
-				)}
-				{cardComponent}
+				</div>
 			</div>
-		</div>
-	);
+		) : (
+			<div className="container">
+				<div className="search__container">
+					<Search
+						setCatImgUrl={setCatImgUrl}
+						setCatTags={setCatTags}
+						setCatImgDescription={setCatImgDescription}
+						validTags={validTags}
+					/>
+				</div>
+				<div className="card__container">
+					{openModal && (
+						<ModalCat
+							setOpenModal={setOpenModal}
+							catImgDescription={catImgDescription}
+						/>
+					)}
+					{cardComponent}
+				</div>
+			</div>
+		);
+	return renderedAppComponent;
 };
 
 export default App;
