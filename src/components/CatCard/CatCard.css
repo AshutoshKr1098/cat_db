@@ -1,0 +1,28 @@
+.cat_card_wrapper {
+	height: 400px;
+	width: 600px;
+	margin: 20px auto;
+	border: 2px solid gray;
+	border-radius: 10px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.cat_card_image {
+	height: 60%;
+	width: 80%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.cat_card_image img {
+	height: 100%;
+	width: 100%;
+}
+
+.cat_card_description {
+	margin-top: 10px;
+
+	height: 10%;
+	width: 100%;
+}

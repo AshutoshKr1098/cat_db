@@ -1,0 +1,33 @@
+.search_container {
+	width: 700px;
+	margin: 20px auto;
+	display: flex;
+	align-items: flex-center;
+}
+
+.search_container input {
+	display: inline-block;
+	padding: 10px;
+	width: 100%;
+	margin: px auto;
+	font-size: 14px;
+	color: gray;
+	border: 3px solid gray;
+	border-radius: 20px;
+	justify-content: center;
+	text-align: center;
+	outline: none;
+}
+
+.search_container button {
+	width: 250px;
+	height: 45px;
+	margin: 10px 20px;
+	border: none;
+	background-color: cornflowerblue;
+	color: white;
+	border-radius: 8px;
+	font-size: 20px;
+	cursor: pointer;
+	display: inline-block;
+}
