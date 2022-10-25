@@ -3,6 +3,7 @@ import axios from "axios";
 import Search from "./components/Search/Search";
 import CatCard from "./components/CatCard/CatCard";
 import ModalCat from "./components/ModalCat/ModalCat";
+import SkeletonFull from "./components/Skeletons/SkeletonFull";
 
 const App = () => {
 	const [validTags, setValidTags] = useState([]);
@@ -58,7 +59,7 @@ const App = () => {
 					setOpenModal={setOpenModal}
 				/>
 			) : (
-				<p>{catImgUrl}</p>
+				<SkeletonFull />
 			)}
 		</>
 	);
